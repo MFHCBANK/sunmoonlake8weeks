@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>泳渡日月潭 8 週肌力營養陪跑計畫｜饗福智膳配送</title>
-  <meta name="description" content="為泳渡日月潭備賽者設計的 8 週肌力營養陪跑計畫，結合備賽膳食、LINE 陪跑提醒、團體方案與完賽故事募集。" />
+  <title>泳渡日月潭勇士八周行動｜饗福智膳配送 × 阿龍智能客服</title>
+  <meta name="description" content="為泳渡日月潭備賽者設計的八周肌力營養陪跑行動，結合饗福智膳配送、LINE OA、阿龍AGENT智能客服與用戶資訊蒐集表單。" />
   <style>
     :root {
       --deep: #0e2f2f;
@@ -12,6 +12,7 @@
       --mint: #e7f6f2;
       --cream: #fff8ec;
       --orange: #f2a65a;
+      --line: #06c755;
       --dark: #1f2933;
       --gray: #607078;
       --white: #ffffff;
@@ -19,6 +20,7 @@
     }
 
     * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
     body {
       margin: 0;
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans TC", "Microsoft JhengHei", sans-serif;
@@ -30,20 +32,22 @@
     .container { width: min(1120px, calc(100% - 36px)); margin: 0 auto; }
     .nav {
       position: sticky; top: 0; z-index: 20;
-      background: rgba(255,248,236,0.92); backdrop-filter: blur(12px);
+      background: rgba(255,248,236,0.94); backdrop-filter: blur(12px);
       border-bottom: 1px solid rgba(31,122,122,0.12);
     }
-    .nav-inner { display:flex; align-items:center; justify-content:space-between; padding: 14px 0; }
-    .brand { font-weight: 900; color: var(--deep); letter-spacing: 1px; }
+    .nav-inner { display:flex; align-items:center; justify-content:space-between; padding: 14px 0; gap:16px; }
+    .brand { font-weight: 900; color: var(--deep); letter-spacing: 1px; white-space:nowrap; }
     .nav-links { display:flex; gap:18px; font-size:14px; color:var(--gray); }
     .cta-btn {
       display:inline-flex; align-items:center; justify-content:center;
       background: var(--orange); color:#2a1600; font-weight:800;
       padding: 12px 20px; border-radius: 999px; box-shadow: 0 10px 22px rgba(242,166,90,.28);
-      transition:.2s ease;
+      transition:.2s ease; border:0; cursor:pointer; font-size:16px; font-family:inherit;
     }
     .cta-btn:hover { transform: translateY(-2px); box-shadow: 0 14px 26px rgba(242,166,90,.34); }
-    .ghost-btn { display:inline-flex; padding: 12px 20px; border:1px solid rgba(255,255,255,.5); color:var(--white); border-radius:999px; font-weight:800; }
+    .ghost-btn { display:inline-flex; align-items:center; justify-content:center; padding: 12px 20px; border:1px solid rgba(255,255,255,.5); color:var(--white); border-radius:999px; font-weight:800; }
+    .line-btn { background: var(--line); color:#05290f; box-shadow: 0 10px 22px rgba(6,199,85,.24); }
+    .agent-btn { background:#ffffff; color:var(--deep); box-shadow: 0 10px 22px rgba(255,255,255,.16); }
 
     .hero {
       background: radial-gradient(circle at 20% 15%, rgba(242,166,90,.28), transparent 28%),
@@ -61,6 +65,7 @@
     .hero-card h3 { margin:0 0 16px; font-size:24px; }
     .check { display:flex; gap:10px; align-items:flex-start; margin:12px 0; color:rgba(255,255,255,.9); }
     .check b { color:#ffd199; }
+    .mini-flow { margin-top:22px; padding:16px; border-radius:20px; background:rgba(255,255,255,.1); border:1px solid rgba(255,255,255,.16); font-size:15px; }
 
     section { padding: 72px 0; }
     .section-title { max-width:780px; margin-bottom:34px; }
@@ -89,18 +94,32 @@
     .featured { border:2px solid var(--orange); transform: translateY(-8px); }
     .featured:before { content:"Pilot 推薦"; position:absolute; top:18px; right:-34px; transform:rotate(35deg); background:var(--orange); color:#2a1600; font-weight:900; padding:6px 42px; font-size:13px; }
 
+    .agent-section { background: var(--mint); }
+    .cta-panel { background:var(--deep); color:var(--white); border-radius:30px; padding:34px; display:grid; grid-template-columns:1fr 1fr; gap:26px; align-items:center; box-shadow: var(--shadow); }
+    .cta-panel h2 { margin:0 0 12px; font-size: clamp(28px, 4vw, 42px); line-height:1.15; }
+    .cta-panel p { color:rgba(255,255,255,.8); margin:0 0 18px; }
+    .cta-list { display:grid; gap:12px; }
+    .cta-list div { background:rgba(255,255,255,.1); border:1px solid rgba(255,255,255,.14); border-radius:18px; padding:14px 16px; }
+
     .form-section { background: var(--deep); color:var(--white); }
     .form-wrap { display:grid; grid-template-columns:.9fr 1.1fr; gap:36px; align-items:start; }
     .form-section h2 { color:var(--white); }
     .form-section p { color:rgba(255,255,255,.78); }
+    .contact-card { margin-top:22px; background:rgba(255,255,255,.1); border:1px solid rgba(255,255,255,.15); border-radius:22px; padding:20px; }
+    .contact-card strong { color:#ffd199; }
     form { background:var(--white); padding:26px; border-radius:26px; box-shadow: var(--shadow); }
     label { display:block; color:var(--deep); font-weight:800; margin:14px 0 6px; }
     input, select, textarea {
       width:100%; padding:13px 14px; border:1px solid #d7e1df; border-radius:14px; font-size:16px; font-family:inherit;
     }
     textarea { min-height:95px; resize:vertical; }
-    .submit { width:100%; border:0; margin-top:18px; cursor:pointer; font-size:17px; }
+    .submit { width:100%; margin-top:18px; font-size:17px; }
     .note { font-size:13px; color:#6b7c82; margin-top:12px; }
+    .form-actions { display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-top:14px; }
+    .form-actions a { text-align:center; border-radius:16px; padding:12px 14px; font-weight:900; }
+    .form-line { background:var(--line); color:#05290f; }
+    .form-agent { background:var(--mint); color:var(--deep); }
+    .form-feedback { display:none; margin-top:14px; padding:12px 14px; border-radius:14px; background:#e7f6f2; color:var(--deep); font-weight:800; }
 
     .faq details { background:var(--white); border-radius:18px; padding:18px 20px; margin:12px 0; box-shadow: 0 8px 22px rgba(15,47,47,.07); }
     summary { cursor:pointer; font-weight:900; color:var(--deep); }
@@ -110,10 +129,11 @@
     .footer-grid { display:flex; justify-content:space-between; gap:20px; flex-wrap:wrap; }
 
     @media (max-width: 860px) {
-      .hero-grid, .grid-3, .grid-2, .form-wrap { grid-template-columns: 1fr; }
+      .hero-grid, .grid-3, .grid-2, .form-wrap, .cta-panel { grid-template-columns: 1fr; }
       .nav-links { display:none; }
       .timeline-item { grid-template-columns:1fr; }
       .featured { transform:none; }
+      .form-actions { grid-template-columns:1fr; }
       section { padding:54px 0; }
     }
   </style>
@@ -126,25 +146,28 @@
         <a href="#why">為何需要</a>
         <a href="#plan">8週陪跑</a>
         <a href="#offer">方案</a>
+        <a href="#agent">智能客服</a>
         <a href="#signup">預約體驗</a>
       </div>
-      <a class="cta-btn" href="#signup">我要加入 Pilot</a>
+      <a class="cta-btn line-btn" href="https://lin.ee/YLeCIMo" target="_blank" rel="noopener">加入 LINE OA</a>
     </div>
   </nav>
 
   <header class="hero">
     <div class="container hero-grid">
       <div>
-        <span class="eyebrow">泳渡日月潭備賽者專屬｜活動前 8 週到完賽後 2 週</span>
+        <span class="eyebrow">泳渡日月潭勇士八周行動｜活動前 8 週到完賽後 2 週</span>
         <h1>泳渡日月潭<br>8 週肌力營養陪跑計畫</h1>
-        <p>不是只賣健康餐，而是陪你完成 3,000 公尺挑戰。用訓練日修復餐、控脂增肌餐與熟齡肌力保存餐，協助你吃對、恢復好、保住肌力。</p>
+        <p>不是只賣健康餐，而是陪你完成 3,000 公尺挑戰。用饗福智膳配送、LINE OA 陪跑提醒與阿龍 AGENT 智能客服，協助你吃對、恢復好、保住肌力。</p>
         <div class="hero-actions">
-          <a class="cta-btn" href="#signup">領取 3 日體驗餐</a>
-          <a class="ghost-btn" href="#plan">查看 8 週計畫</a>
+          <a class="cta-btn line-btn" href="https://lin.ee/YLeCIMo" target="_blank" rel="noopener">加入 LINE OA 領檢核表</a>
+          <a class="cta-btn agent-btn" href="https://gemini.google.com/gem/1Yg9wXafcZ-tAwgFCe7LDhZAjGqGoij04?usp=sharing" target="_blank" rel="noopener">先問阿龍智能客服</a>
+          <a class="ghost-btn" href="#signup">填表預約體驗</a>
         </div>
         <div class="proof">
           <span>✅ 針對泳渡備賽</span>
           <span>✅ LINE OA 每週陪跑</span>
+          <span>✅ 阿龍 AGENT 即時諮詢</span>
           <span>✅ 泳隊/健身房團體方案</span>
         </div>
       </div>
@@ -154,6 +177,7 @@
         <div class="check"><b>02</b><span>外食蛋白質不足，備賽期間容易疲勞、掉肌肉。</span></div>
         <div class="check"><b>03</b><span>熟齡泳者擔心體力、抽筋、受傷與賽後恢復。</span></div>
         <div class="check"><b>04</b><span>有報名、有訓練，但缺少一套可持續的營養節奏。</span></div>
+        <div class="mini-flow">建議流程：先填表留下需求 → 加入 LINE OA → 由阿龍 AGENT 協助回答方案與備賽問題。</div>
       </div>
     </div>
   </header>
@@ -191,7 +215,7 @@
         <p>這是一個 Pilot 市場驗證活動：用真實備賽場景測試需求、餐包、回購、團體合作與口碑擴散。</p>
       </div>
       <div class="timeline">
-        <div class="timeline-item"><div class="week">第 1 週</div><div><h4>備賽營養檢核</h4><p>完成 LINE 問卷，了解訓練頻率、外食比例、蛋白質攝取與恢復痛點。</p></div></div>
+        <div class="timeline-item"><div class="week">第 1 週</div><div><h4>備賽營養檢核</h4><p>完成表單與 LINE 問卷，了解訓練頻率、外食比例、蛋白質攝取與恢復痛點。</p></div></div>
         <div class="timeline-item"><div class="week">第 2 週</div><div><h4>3,000 公尺肌力準備</h4><p>建立游泳、肌耐力、恢復三個目標，領取一週備賽飲食建議。</p></div></div>
         <div class="timeline-item"><div class="week">第 3–4 週</div><div><h4>3 日體驗餐與 7 日備賽包</h4><p>試吃後選擇訓練日修復、控脂增肌或熟齡肌力保存方案。</p></div></div>
         <div class="timeline-item"><div class="week">第 5–6 週</div><div><h4>團體備賽與教練推薦</h4><p>開放泳隊、早泳會、健身房團體訂購與專屬推薦碼。</p></div></div>
@@ -205,7 +229,7 @@
     <div class="container">
       <div class="section-title">
         <h2>Pilot 方案：先從最小可行餐包開始</h2>
-        <p>價格可依供應成本調整；這裡先提供 Landing Page 測試用的方案架構。</p>
+        <p>選擇有興趣的方案後，請填寫下方 CTA 表單，系統會把你的需求整理成 LINE 訊息，方便客服接續導購。</p>
       </div>
       <div class="grid-3">
         <div class="card price-card">
@@ -262,39 +286,87 @@
     </div>
   </section>
 
+  <section id="agent" class="agent-section">
+    <div class="container">
+      <div class="cta-panel">
+        <div>
+          <h2>讓阿龍 AGENT 先陪你釐清需求</h2>
+          <p>不知道該選 3 日、7 日或團體方案？可以先開啟阿龍智能客服，詢問備賽飲食、配送與方案選擇，再回到本頁填表預約。</p>
+          <div class="hero-actions">
+            <a class="cta-btn agent-btn" href="https://gemini.google.com/gem/1Yg9wXafcZ-tAwgFCe7LDhZAjGqGoij04?usp=sharing" target="_blank" rel="noopener">開啟阿龍智能客服</a>
+            <a class="ghost-btn" href="#signup">我已想好，直接填表</a>
+          </div>
+        </div>
+        <div class="cta-list">
+          <div>① 回答備賽餐包怎麼選</div>
+          <div>② 協助整理泳渡備賽飲食痛點</div>
+          <div>③ 引導加入 LINE OA 完成導購</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <section id="signup" class="form-section">
     <div class="container form-wrap">
       <div>
         <div class="section-title">
-          <h2>加入 Pilot 名單</h2>
-          <p>填寫後可串接 Google Form、LINE OA 或 CRM。建議第一階段先收 100 位名單、30 位付費體驗、2–3 個團體合作。</p>
+          <h2>填寫 CTA 表單，加入 Pilot 名單</h2>
+          <p>留下你的備賽資訊後，系統會自動整理成 LINE 訊息。送出後請在 LINE 中按下傳送，官方帳號就能收到你的預約資料。</p>
         </div>
         <p><strong>Pilot 任務：</strong>驗證備賽者是否願意為「方便、精準、陪跑型」肌力營養餐付費，並建立回購與口碑案例。</p>
+        <div class="contact-card">
+          <p><strong>導購路徑：</strong>CTA 表單 → LINE OA 收件 → 阿龍 AGENT 輔助諮詢 → 餐包方案媒合。</p>
+          <p>LINE OA：@613mqdxd</p>
+        </div>
       </div>
-      <form>
-        <label>姓名 / 暱稱</label>
-        <input type="text" placeholder="例如：阿明、王小姐" />
-        <label>LINE ID / Email</label>
-        <input type="text" placeholder="請留下方便聯繫方式" />
-        <label>你的身份</label>
-        <select>
+      <form id="leadForm">
+        <label for="name">姓名 / 暱稱 *</label>
+        <input id="name" name="name" type="text" placeholder="例如：阿明、王小姐" required />
+
+        <label for="contact">手機 / Email *</label>
+        <input id="contact" name="contact" type="text" placeholder="請留下方便聯繫方式" required />
+
+        <label for="lineId">LINE ID</label>
+        <input id="lineId" name="lineId" type="text" placeholder="例如：@613mqdxd 或你的個人 LINE ID" />
+
+        <label for="identity">你的身份 *</label>
+        <select id="identity" name="identity" required>
           <option>第一次挑戰泳渡者</option>
           <option>泳隊 / 早泳會成員</option>
           <option>健身 / 三鐵族群</option>
           <option>熟齡健康泳者</option>
           <option>教練 / 團體主揪</option>
         </select>
-        <label>想了解的方案</label>
-        <select>
+
+        <label for="plan">想了解的方案 *</label>
+        <select id="plan" name="plan" required>
           <option>3 日體驗包</option>
           <option>7 日備賽包</option>
           <option>21 日陪跑包</option>
           <option>泳隊 / 健身房團體方案</option>
         </select>
-        <label>目前最大的備賽飲食困擾</label>
-        <textarea placeholder="例如：外食太多、蛋白質不足、訓練後不知道吃什麼、擔心恢復慢……"></textarea>
-        <button class="cta-btn submit" type="button">送出預約，領取備賽檢核表</button>
-        <div class="note">送出按鈕目前為版型示意；正式上線可串接 Google Form、HubSpot、LINE OA 或 Notion 表單。</div>
+
+        <label for="frequency">目前訓練頻率</label>
+        <select id="frequency" name="frequency">
+          <option>每週 1 次以下</option>
+          <option>每週 2–3 次</option>
+          <option>每週 4 次以上</option>
+          <option>尚未開始備賽</option>
+        </select>
+
+        <label for="area">希望配送地區</label>
+        <input id="area" name="area" type="text" placeholder="例如：台北市大安區、新北板橋、公司附近" />
+
+        <label for="pain">目前最大的備賽飲食困擾</label>
+        <textarea id="pain" name="pain" placeholder="例如：外食太多、蛋白質不足、訓練後不知道吃什麼、擔心恢復慢……"></textarea>
+
+        <button class="cta-btn line-btn submit" type="submit">送出預約，帶到 LINE OA</button>
+        <div id="formFeedback" class="form-feedback">已整理你的預約資料，請在 LINE 中按下傳送。</div>
+        <div class="form-actions">
+          <a class="form-line" href="https://lin.ee/YLeCIMo" target="_blank" rel="noopener">直接加入 LINE OA</a>
+          <a class="form-agent" href="https://gemini.google.com/gem/1Yg9wXafcZ-tAwgFCe7LDhZAjGqGoij04?usp=sharing" target="_blank" rel="noopener">問阿龍 AGENT</a>
+        </div>
+        <div class="note">本頁為靜態 GitHub Pages。若未自動帶出 LINE 訊息，請加入 LINE OA 後，複製表單內容傳給客服；正式營運可再串接 Google Form、HubSpot、Notion 或 CRM。</div>
       </form>
     </div>
   </section>
@@ -306,7 +378,8 @@
         <p>降低首次購買疑慮，提升表單轉換率。</p>
       </div>
       <details><summary>這是減肥餐嗎？</summary><p>不是單純減肥餐。本計畫以泳渡備賽為場景，重點是肌力保存、訓練恢復與穩定補給。</p></details>
-      <details><summary>沒有每天訓練也適合嗎？</summary><p>適合。方案會依訓練日與休息日做不同建議，重點是建立穩定飲食節奏。</p></details>
+      <details><summary>填表後資料會送到哪裡？</summary><p>送出後會整理成 LINE 訊息，請在 LINE 中按下傳送，官方帳號即可收到你的姓名、聯絡方式、身份、方案與飲食困擾。</p></details>
+      <details><summary>可以先不要填表，只問問題嗎？</summary><p>可以。請先開啟阿龍 AGENT 智能客服，了解方案與備賽飲食建議後，再回到本頁填表預約。</p></details>
       <details><summary>可以團體訂購嗎？</summary><p>可以。泳隊、早泳會、健身房、三鐵社群可洽談團體方案與推薦碼。</p></details>
       <details><summary>完賽後還需要吃嗎？</summary><p>活動後 2 週是恢復與口碑蒐集期，可搭配恢復餐與心得回報，延伸到長期肌力健康管理。</p></details>
     </div>
@@ -314,9 +387,40 @@
 
   <footer>
     <div class="container footer-grid">
-      <div>© 饗福智膳配送｜泳渡日月潭 8 週肌力營養陪跑計畫</div>
-      <div>運動營養 × 熟齡肌力 × 健康數據服務</div>
+      <div>© 饗福智膳配送｜泳渡日月潭勇士八周行動</div>
+      <div>運動營養 × LINE OA × 阿龍 AGENT × 健康數據服務</div>
     </div>
   </footer>
+
+  <script>
+    const lineMessageBase = 'https://line.me/R/oaMessage/@613mqdxd/?';
+    const fallbackLineUrl = 'https://lin.ee/YLeCIMo';
+    const form = document.getElementById('leadForm');
+    const feedback = document.getElementById('formFeedback');
+
+    form.addEventListener('submit', function(event) {
+      event.preventDefault();
+      const data = new FormData(form);
+      const message = [
+        '【泳渡日月潭勇士八周行動｜預約資料】',
+        '姓名/暱稱：' + (data.get('name') || ''),
+        '手機/Email：' + (data.get('contact') || ''),
+        'LINE ID：' + (data.get('lineId') || '未填'),
+        '身份：' + (data.get('identity') || ''),
+        '想了解方案：' + (data.get('plan') || ''),
+        '訓練頻率：' + (data.get('frequency') || ''),
+        '配送地區：' + (data.get('area') || '未填'),
+        '備賽飲食困擾：' + (data.get('pain') || '未填'),
+        '來源：Landing Page CTA 表單'
+      ].join('\n');
+
+      feedback.style.display = 'block';
+      const targetUrl = lineMessageBase + encodeURIComponent(message);
+      const popup = window.open(targetUrl, '_blank');
+      if (!popup) {
+        window.location.href = fallbackLineUrl;
+      }
+    });
+  </script>
 </body>
 </html>
